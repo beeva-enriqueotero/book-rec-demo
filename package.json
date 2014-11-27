@@ -1,0 +1,15 @@
+{
+  "name"         : "covers",
+  "version"      : "0.0.1",
+  "private"      : true,
+  "dependencies" : {
+    "express"         : "latest",
+    "mongojs"         : "latest",
+    "scraperjs"       : "latest",
+    "http"            : "latest",
+    "path"            : "latest"
+  },
+  "scripts"     : {
+    "start": "node app.js"
+  }
+}
