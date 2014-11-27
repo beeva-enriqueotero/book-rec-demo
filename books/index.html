@@ -1,0 +1,32 @@
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>Flask book Recommender</title>
+        <link href="css/main.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body>
+        <div class="container">
+            <form id="rec">
+                <select id="books" data-placeholder="Choose some books..." class="chosen-select" multiple>
+                </select>
+                <button class="btn" type="submit">Go!</button>
+            </form>
+            <section class="results">
+                <p class="lead">Top Ten Recommended books</p>
+                <figure class="visualization row">
+                    <div class="col-sm-6 col-1"></div>
+                    <div class="col-sm-6 col-2"></div>
+                </figure>
+            </section>
+            <pre id="result" class="language-javascript"><code class="language-javascript"></code></pre>
+        </div>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/bloodhound.min.js"></script>
+        <script src="js/typeahead.jquery.min.js"></script>
+        <script src="js/code.js"></script>
+        <script src="js/books.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
