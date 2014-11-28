@@ -24,7 +24,7 @@ app.get(  '/cover', function ( req, res, next ){
 });
 
 app.get(  '/search', function ( req, res, next ){
-  var query = encodeURIComponent(req.query['query']).replace('%20','+');
+  var query = encodeURIComponent(req.query['query']).replace('%20',' ');
   db.books.find({t: {$regex:query.toUpperCase()}}, function(err, docs) {
     if( err || !docs) {
       console.log("No female users found");
