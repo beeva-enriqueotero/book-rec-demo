@@ -3,15 +3,30 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width">
-        <title>Flask book Recommender</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Book Recommender</title>
+	<!-- Thanks Ŷhat guys for your Beer Recommender -->
         <link href="css/main.css" rel="stylesheet" type="text/css"></link>
+	<link rel="stylesheet" type="text/css" href="css/select2.css">
+	
+	<style>
+input {
+min-height: 30px;
+}
+	</style>
+
+      <script type="text/javascript" src="select2.js"></script>
     </head>
     <body>
         <div class="container">
             <form id="rec">
-                <select id="books" data-placeholder="Choose some books..." class="chosen-select" multiple>
-                </select>
-                <button class="btn" type="submit">Go!</button>
+               <!-- <select id="books" data-placeholder="Choose some books..." class="chosen-select" multiple>
+                </select>-->
+		<div class="chosen-container chosen-container-multi chosen-with-drop chosen-container-active">
+		<input type='hidden' id="e6" style="width:500px;"/>
+</div>
+<!--                <button class="btn" type="submit">Go!</button>-->
+		<button class="btn" id="save">Go!</button>
             </form>
             <section class="results">
                 <p class="lead">Top Ten Recommended books</p>
@@ -23,6 +38,8 @@
             <pre id="result" class="language-javascript"><code class="language-javascript"></code></pre>
         </div>
         <script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/select2.js"></script>
+
         <script src="js/bloodhound.min.js"></script>
         <script src="js/typeahead.jquery.min.js"></script>
         <script src="js/code.js"></script>
