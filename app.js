@@ -36,7 +36,8 @@ app.get(  '/search', function ( req, res, next ){
       docs.forEach(function(item) { arr.push({"id": item.i, "t" : item.t }); });
       var result = {books:arr.slice(0, 50)};
       res.setHeader('Content-Type', 'application/json');
-      return res.end(JSON.stringify(result));
+	message = req.query.callback + "(" + JSON.stringify(result) + ");";
+	return res.end(message);
     }
   });
 });
