@@ -55,7 +55,7 @@ var recommendation = {
 
  MultiAjaxAutoComplete('#e6', 'http://localhost:8080/search');
     $('#save').click(function() {
-        alert($('#e6').val());
+        //alert($('#e6').val());
     });
 });
 
@@ -69,7 +69,7 @@ var recommendation = {
         }
     },
     submit: function(){
-        var chosen_book = $("#books").val();
+        var chosen_book = $("#e6").val();
         var payload = {
             books: chosen_book,
             n: N
@@ -77,7 +77,7 @@ var recommendation = {
 
         $.ajax({
             type: "GET",
-            url: "mock.json",
+            url: "http://localhost:8000/books/mock.json",
             data: JSON.stringify(payload),
             contentType: "application/json",
             success: function(d) {
