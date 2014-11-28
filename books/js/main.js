@@ -76,7 +76,7 @@ var recommendation = {
 
         $.ajax({
             type: "GET",
-            url: "result.json",
+            url: "mock.json",
             data: JSON.stringify(payload),
             contentType: "application/json",
             success: function(d) {
@@ -87,12 +87,12 @@ var recommendation = {
                 }
                 for (var i=0; i < 5; i++){
                     var $this_book = $('.col-1 .book:nth-child('+(i+1)+')');
-                    $this_book.find('.name').html(d.result[i].book);
+                    $this_book.find('.name').html(d.result[i].t);
                     $this_book.addClass('show');
                 }
                 for (var i=5; i < 10; i++){
                     var $this_book = $('.col-2 .book:nth-child('+(i-4)+')');
-                    $this_book.find('.name').html(d.result[i].book);
+                    $this_book.find('.name').html(d.result[i].t);
                     $this_book.addClass('show');
                 }
                 Prism.highlightAll();
