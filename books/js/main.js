@@ -1,5 +1,5 @@
 var book_svg='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path d="M464,64v416H80c-17.672,0-32-14.313-32-32s14.328-32,32-32h352V0H80C44.656,0,16,28.656,16,64v384c0,35.344,28.656,64,64,64 h416V64H464z"/></svg>'
-
+var requestURL = 'http://54.229.189.82:3000';
 var N = 3;
 var N_2 = Math.floor((N+1)/2);
 
@@ -51,7 +51,7 @@ var recommendation = {
         return movie.t;
     };
 
- MultiAjaxAutoComplete('#e6', 'http://localhost:8080/search');
+ MultiAjaxAutoComplete('#e6', requestURL + '/search');
     $('#save').click(function() {
         //alert($('#e6').val());
     });
@@ -70,12 +70,13 @@ var recommendation = {
         var chosen_book = $("#e6").val();
         console.log(chosen_book);
         var payload = {
-            libros: [chosen_book],
+            libros: chosen_book.split(','),
             limite : 10,
             tipo : 0,
             familia : 0
         };
-        var postUrl = "http://54.229.189.82:3000/books/";
+       // var postUrl = "http://54.229.189.82:3000/books/";
+       var postUrl = requestURL + "/books/";
         $.ajax({
             type: "POST",
             url: postUrl,
