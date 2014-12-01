@@ -68,14 +68,17 @@ var recommendation = {
     },
     submit: function(){
         var chosen_book = $("#e6").val();
+        console.log(chosen_book);
         var payload = {
-            books: chosen_book,
-            n: N
+            libros: [chosen_book],
+            limite : 10,
+            tipo : 0,
+            familia : 0
         };
-
+        var postUrl = "http://54.229.189.82:3000/books/";
         $.ajax({
-            type: "GET",
-            url: "http://localhost:8000/books/mock.json",
+            type: "POST",
+            url: postUrl,
             data: JSON.stringify(payload),
             contentType: "application/json",
             success: function(d) {
