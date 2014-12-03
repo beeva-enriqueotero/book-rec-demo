@@ -1470,10 +1470,11 @@ fieldset input {
   padding-top: 20px;
   letter-spacing:-1px;
   line-height:130%;
-  max-width:70%;
+  max-width:80%;
   text-align:left;
   display:inline-block;
   font-size:18px;
+  width: 100%;
 }
 .col-2 .book:nth-child(3) {
   -webkit-transition: all 0.3s ease-in 0.1s;
