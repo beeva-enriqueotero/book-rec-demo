@@ -60,11 +60,19 @@ var recommendation = {
 
     },
     books: function(){
-        for (var i=0; i < N_2; i++){
+        // 2 columns version
+        /*for (var i=0; i < N_2; i++){
             $('.col-1').append('<li class="book" data-id="'+i+'">'+book_svg+'<span class="name"></span></li>');
         }
         for (var i=N_2; i < N; i++){
             $('.col-2').append('<li class="book" data-id="'+i+'">'+book_svg+'<span class="name"></span></li>');
+        }*/
+        // 3 columns version
+        var x = 1;
+        for (var i=1; i < N+1; i++){
+            console.log(".col-"+x)
+            $('.col-'+x).append('<li class="book" data-id="'+i+'">'+book_svg+'<span class="name"></span></li>');
+            (x%3==0) ? x=1 : x++;
         }
     },
     submit: function(){
@@ -93,7 +101,19 @@ var recommendation = {
                 if (d.result.length){
                     $('.results p').addClass('show');
                 }
-                for (var i=0; i < N_2; i++){
+                // 3 columns version
+                var x = 1;
+                for (var i=1; i < N+1; i++){
+                    console.log(".col-"+x)
+                    //ToDo: nth-child index for more than 3 elements
+                    var $this_book = $('.col-'+x+' .book:nth-child('+Math.floor(i/x)+')');
+                    (x%3==0) ? x=1 : x++;
+                    $this_book.find('.name').html(d.result[i-1].t);
+                    console.log(d.result[i-1].t)
+                    $this_book.addClass('show');
+                }
+                // 2 columns version
+                /*for (var i=0; i < N_2; i++){
                     var $this_book = $('.col-1 .book:nth-child('+(i+1)+')');
                     $this_book.find('.name').html(d.result[i].t);
                     $this_book.addClass('show');
@@ -102,7 +122,7 @@ var recommendation = {
                     var $this_book = $('.col-2 .book:nth-child('+(i-N_2+1)+')');
                     $this_book.find('.name').html(d.result[i].t);
                     $this_book.addClass('show');
-                }
+                }*/
                 Prism.highlightAll();
             }
         });
