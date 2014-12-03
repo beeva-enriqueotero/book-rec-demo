@@ -34,6 +34,15 @@ app.get(  '/search', function ( req, res, next ){
     else{
       var arr = []
       docs.forEach(function(item) { arr.push({"id": item.i, "t" : item.t }); });
+	
+      arr.sort(function(a, b){
+      var nameA=a.t.toLowerCase(), nameB=b.t.toLowerCase()
+      if (nameA < nameB) //sort string ascending
+        return -1
+      if (nameA > nameB)
+        return 1
+      return 0 //default return value (no sorting)
+})
       var result = {books:arr.slice(0, 50)};
       res.setHeader('Content-Type', 'application/json');
 	message = req.query.callback + "(" + JSON.stringify(result) + ");";
